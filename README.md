@@ -1,4 +1,4 @@
-# install-cert-manager
+# install-cert-manager (준비중)
 
 ## Prerequisites
 * Kubernetes
