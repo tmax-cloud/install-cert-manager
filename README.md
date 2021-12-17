@@ -62,16 +62,8 @@ sed -i "s/quay.io/${REGISTRY}/g" install.yaml
 kubectl apply -f install.yaml
 ```
 
-## Installation (vX.Y.Z 버전 유의)
-```bash
-kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/vX.Y.Z/cert-manager.yaml
+## 외부 네트워크 통신이 가능한 환경 구축 가이드
+* yaml 설치
 ```
-## Uninstallation (vX.Y.Z 버전 유의)
-1. 모든 cert-manager 리소스들 삭제. (아래 커맨드를 이용해서 우선 어떤 cert-manager 리소스들 리스팅하고 삭제)
-```bash
-kubectl get Issuers,ClusterIssuers,Certificates,CertificateRequests,Orders,Challenges --all-namespaces
+kubectl apply -f install.yaml
 ```
-2. cert-manager 삭제
-```bash
-kubectl delete -f https://github.com/jetstack/cert-manager/releases/download/vX.Y.Z/cert-manager.yaml
-```  
