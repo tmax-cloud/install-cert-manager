@@ -54,6 +54,7 @@ sudo docker push ${REGISTRY}/jetstack/cert-manager-cainjector:$CERT_MANAGER_VERS
 ```
 
 * 레지스트리에 푸시된 이미지들을 install.yaml에 반영
+  * install.yaml은 install-cert-manager 레포에 루트 경로에 위치  
 ```
 sed -i "s/quay.io/${REGISTRY}/g" install.yaml	 	 
 ```
