@@ -15,7 +15,7 @@ export CERT_MANAGER_WORKDIR=~/cert-manager-install
 export CERT_MANAGER_VERSION=v1.5.4
 export IMG_CERT_MANAGER_CONTROLLER=quay.io/jetstack/cert-manager-controller:$CERT_MANAGER_VERSION
 export IMG_CERT_MANAGER_WEBHOOK=quay.io/jetstack/cert-manager-webhook:$CERT_MANAGER_VERSION
-export IMG_CERT_MANAGER_CA_INJECTOR=quay.io/jetstack/cert-manager-cainjector$CERT_MANAGER_VERSION
+export IMG_CERT_MANAGER_CA_INJECTOR=quay.io/jetstack/cert-manager-cainjector:$CERT_MANAGER_VERSION
 ```
 * 작업 디렉토리로 이동
 ```
