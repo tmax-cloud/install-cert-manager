@@ -23,14 +23,14 @@ cd $CERT_MANAGER_WORKDIR
 ```
 * 외부 네트워크 통신이 가능한 환경에서 필요한 이미지 다운로드
 ```
-sudo docker pull IMG_CERT_MANAGER_CONTROLLER
-sudo docker save IMG_CERT_MANAGER_CONTROLLER > controller.tar
+sudo docker pull $IMG_CERT_MANAGER_CONTROLLER
+sudo docker save $IMG_CERT_MANAGER_CONTROLLER > controller.tar
 
-sudo docker pull IMG_CERT_MANAGER_WEBHOOK
-sudo docker save IMG_CERT_MANAGER_WEBHOOK > webhook.tar
+sudo docker pull $IMG_CERT_MANAGER_WEBHOOK
+sudo docker save $IMG_CERT_MANAGER_WEBHOOK > webhook.tar
 
-sudo docker pull IMG_CERT_MANAGER_CA_INJECTOR
-sudo docker save IMG_CERT_MANAGER_CA_INJECTOR > cainjector.tar
+sudo docker pull $IMG_CERT_MANAGER_CA_INJECTOR
+sudo docker save $IMG_CERT_MANAGER_CA_INJECTOR > cainjector.tar
 ```
 * 레지스트리 환경 변수 설정
   * 아래 중괄호 안에, 폐쇄망에서 사용하는 레지스트리 IP와 Port를 기입
@@ -41,15 +41,15 @@ export REGISTRY={registry-ip}:{port}
 * 생성한 이미지 tar 파일을 폐쇄망 환경으로 이동시킨 뒤 사용하려는 registry에 push.
 ```
 sudo docker load < controller.tar
-sudo docker tag IMG_CERT_MANAGER_CONTROLLER ${REGISTRY}/jetstack/cert-manager-controller:$CERT_MANAGER_VERSION
+sudo docker tag $IMG_CERT_MANAGER_CONTROLLER ${REGISTRY}/jetstack/cert-manager-controller:$CERT_MANAGER_VERSION
 sudo docker push ${REGISTRY}/jetstack/cert-manager-controller:$CERT_MANAGER_VERSION
 
 sudo docker load < webhook.tar
-sudo docker tag IMG_CERT_MANAGER_WEBHOOK ${REGISTRY}/jetstack/cert-manager-webhook:$CERT_MANAGER_VERSION
+sudo docker tag $IMG_CERT_MANAGER_WEBHOOK ${REGISTRY}/jetstack/cert-manager-webhook:$CERT_MANAGER_VERSION
 sudo docker push ${REGISTRY}/jetstack/cert-manager-webhook:$CERT_MANAGER_VERSION
 
 sudo docker load < cainjector.tar
-sudo docker tag IMG_CERT_MANAGER_CA_INJECTOR ${REGISTRY}/jetstack/cert-manager-cainjector$CERT_MANAGER_VERSION
+sudo docker tag $IMG_CERT_MANAGER_CA_INJECTOR ${REGISTRY}/jetstack/cert-manager-cainjector$CERT_MANAGER_VERSION
 sudo docker push ${REGISTRY}/jetstack/cert-manager-cainjector$CERT_MANAGER_VERSION
 ```
 
