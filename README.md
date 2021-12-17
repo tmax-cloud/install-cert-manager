@@ -49,8 +49,8 @@ sudo docker tag $IMG_CERT_MANAGER_WEBHOOK ${REGISTRY}/jetstack/cert-manager-webh
 sudo docker push ${REGISTRY}/jetstack/cert-manager-webhook:$CERT_MANAGER_VERSION
 
 sudo docker load < cainjector.tar
-sudo docker tag $IMG_CERT_MANAGER_CA_INJECTOR ${REGISTRY}/jetstack/cert-manager-cainjector$CERT_MANAGER_VERSION
-sudo docker push ${REGISTRY}/jetstack/cert-manager-cainjector$CERT_MANAGER_VERSION
+sudo docker tag $IMG_CERT_MANAGER_CA_INJECTOR ${REGISTRY}/jetstack/cert-manager-cainjector:$CERT_MANAGER_VERSION
+sudo docker push ${REGISTRY}/jetstack/cert-manager-cainjector:$CERT_MANAGER_VERSION
 ```
 
 * 레지스트리에 푸시된 이미지들을 install.yaml에 반영
