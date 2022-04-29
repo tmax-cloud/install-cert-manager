@@ -69,3 +69,12 @@ kubectl apply -f install.yaml
 ```
 kubectl apply -f install.yaml
 ```
+## 네임스페이스 cert-manager가 terminating 상태일 경우
+* 주로 plain yaml로 삭제하는 경우 나타남
+* 아래 커맨드를 차례대로 실행하여 네임스페이스 cert-manager 삭제
+```
+NAMESPACE=cert-manager
+kubectl get namespace $NAMESPACE -o json > $NAMESPACE.json
+sed -i -e 's/"kubernetes"//' $NAMESPACE.json
+kubectl replace --raw "/api/v1/namespaces/$NAMESPACE/finalize" -f ./$NAMESPACE.json
+```
